@@ -121,9 +121,9 @@ bn.fit.backend.continuous = function(dag, node, data, method, extra.args,
 
     # replace unidentifiable regression coefficients with zeroes to prevent NAs
     # from propagating.
-    if (extra.args$replace.unidentifiable)
+    if (extra.args$replace.unidentifiable) {
       lmreg$coefficients[is.na(lmreg$coefficients)] = 0
-
+    }
   }#THEN
 
   structure(c(list(node = node, parents = parents, children = children),
