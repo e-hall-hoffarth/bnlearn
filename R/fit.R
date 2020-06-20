@@ -124,6 +124,11 @@ bn.fit.backend.continuous = function(dag, node, data, method, extra.args,
     if (extra.args$replace.unidentifiable) {
       lmreg$coefficients[is.na(lmreg$coefficients)] = 0
     }
+      
+    if (extra.args$zero.intercept) {
+      lmreg$coefficients[1] = 0
+    }
+      
   }#THEN
 
   structure(c(list(node = node, parents = parents, children = children),
